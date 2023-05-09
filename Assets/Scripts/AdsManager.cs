@@ -11,7 +11,7 @@ public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
     [SerializeField] string _androidAdUnitIdIntersitial = "Interstitial_Android";
     [SerializeField] string _iOsAdUnitIdIntersitial = "Interstitial_iOS";
     string _adUnitIdIntersitial;
-
+    string testing;
     void Awake()
     {
         InitializeAds();
