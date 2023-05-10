@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GManager : MonoBehaviour
 {
+    public GameObject m_AdsPanel;
     public AdsManager m_AdsManager;
     // Start is called before the first frame update
     void Start()
@@ -19,8 +20,17 @@ public class GManager : MonoBehaviour
 
     private IEnumerator startADS() {
         yield return new WaitForSeconds(5f);
-        m_AdsManager.LoadAd();
-        yield return new WaitForSeconds(5f);
-        m_AdsManager.ShowAd();
+        m_AdsPanel.SetActive(true);
+        Time.timeScale = 0; 
+    }
+
+    public void CloseAdsPanel () {
+        m_AdsPanel.SetActive(false);
+        Time.timeScale = 1;
+    }
+
+    public void ShowAds() {
+        m_AdsManager.LoadAd(AdsManager.AD_TYPE.REWARD);
+        m_AdsPanel.SetActive(false);
     }
 }
