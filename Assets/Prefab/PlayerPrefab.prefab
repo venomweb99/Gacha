@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6364401368415976858}
   - component: {fileID: 6364401368415976861}
   - component: {fileID: 1709665234727854513}
+  - component: {fileID: 514326806338643117}
   m_Layer: 0
   m_Name: Hair
   m_TagString: Untagged
@@ -112,6 +113,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wobbleAmount: 0.001
+--- !u!114 &514326806338643117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6364401368415976860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 993a5a4809a38f14eae70692dc5b4066, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tiltAmount: 2
+  tiltSpeed: 7
 --- !u!1 &6364401368976348586
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,6 +288,15 @@ MonoBehaviour:
   margin: 2
   atkSpeed: 1
   dmg: 1
+  baseHair: {fileID: 6364401368415976860}
+  baseSkin: {fileID: 6364401368976348586}
+  baseClothes: {fileID: 6364401369590009434}
+  baseShoes: {fileID: 6364401370048858942}
+  weapon: 0
+  hairColor: 0
+  skinColor: 0
+  clothesColor: 0
+  shoesColor: 0
 --- !u!65 &2763926329757176411
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -298,6 +322,7 @@ GameObject:
   - component: {fileID: 6364401369590009433}
   - component: {fileID: 6364401369590009432}
   - component: {fileID: 6364401369590009435}
+  - component: {fileID: 3480797904688534213}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -384,6 +409,20 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &3480797904688534213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6364401369590009434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 993a5a4809a38f14eae70692dc5b4066, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tiltAmount: 3
+  tiltSpeed: 10
 --- !u!1 &6364401369966971292
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,7 +448,7 @@ Transform:
   m_GameObject: {fileID: 6364401369966971292}
   m_LocalRotation: {x: 0, y: 0, z: 0.53729963, w: 0.8433915}
   m_LocalPosition: {x: 0.06, y: 0.09, z: 0.25}
-  m_LocalScale: {x: 1, y: 1, z: 0.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6364401370048858938}
@@ -431,6 +470,7 @@ GameObject:
   - component: {fileID: 6364401370048858941}
   - component: {fileID: 6364401370048858940}
   - component: {fileID: 6364401370048858943}
+  - component: {fileID: 8931870931644002358}
   m_Layer: 0
   m_Name: Legs
   m_TagString: Untagged
@@ -446,7 +486,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6364401370048858942}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.127, y: -0.111, z: -0.257}
+  m_LocalPosition: {x: 0.127, y: -0.125, z: -0.257}
   m_LocalScale: {x: 0.07999999, y: 1, z: 0.11}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -517,3 +557,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &8931870931644002358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6364401370048858942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 993a5a4809a38f14eae70692dc5b4066, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tiltAmount: -3
+  tiltSpeed: 10

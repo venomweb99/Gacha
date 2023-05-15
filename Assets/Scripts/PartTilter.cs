@@ -15,9 +15,8 @@ public class PartTilter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //rotate the object to make it wobble on the x axis
-        transform.rotation = Quaternion.Euler(Mathf.Sin(Time.time * tiltSpeed) * tiltAmount, 0, 0);
-
+        float rot = Mathf.Sin(Time.time * tiltSpeed) * tiltAmount;
+        transform.rotation = Quaternion.Euler(65, -90 +rot, 0);
         
         
     }

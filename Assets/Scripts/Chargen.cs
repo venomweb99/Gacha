@@ -5,13 +5,11 @@ using UnityEngine;
 public class Chargen : MonoBehaviour
 {
     public GameObject baseHair;
-    public GameObject baseEyes;
     public GameObject baseSkin;
     public GameObject baseClothes;
     public GameObject baseShoes;
     public int weapon;
     public int hairColor;
-    public int eyeColor;
     public int skinColor;
     public int clothesColor;
     public int shoesColor;
@@ -28,9 +26,8 @@ public class Chargen : MonoBehaviour
         
     }
 
-    void createSeeded(int h, int e, int s, int c, int sh, int w){
+    void createSeeded(int h, int s, int c, int sh, int w){
         hairColor = h;
-        eyeColor = e;
         skinColor = s;
         clothesColor = c;
         shoesColor = sh;
@@ -38,12 +35,11 @@ public class Chargen : MonoBehaviour
     }
 
     void createRandom(){
-        hairColor = Random.Range(0, 3);
-        eyeColor = Random.Range(0, 3);
-        skinColor = Random.Range(0, 3);
-        clothesColor = Random.Range(0, 3);
-        shoesColor = Random.Range(0, 3);
-        weapon = Random.Range(0, 3);
+        hairColor = Random.Range(0, 6);
+        skinColor = Random.Range(0, 6);
+        clothesColor = Random.Range(0, 6);
+        shoesColor = Random.Range(0, 6);
+        weapon = Random.Range(0, 6);
     }
 
     Color getColor(int color){
@@ -56,6 +52,11 @@ public class Chargen : MonoBehaviour
                 return Color.blue;
             case 3:
                 return Color.yellow;
+            case 4:
+                return Color.magenta;
+            case 5:
+                return Color.cyan;
+
             default:
                 return Color.white;
         }
@@ -66,8 +67,6 @@ public class Chargen : MonoBehaviour
         //set the color of the parts
         var hp = Instantiate(baseHair, transform.position, Quaternion.identity);
                 hp.transform.parent = transform;
-        var ep = Instantiate(baseEyes, transform.position, Quaternion.identity);
-                ep.transform.parent = transform;
         var sp = Instantiate(baseSkin, transform.position, Quaternion.identity);
                 sp.transform.parent = transform;
         var cp = Instantiate(baseClothes, transform.position, Quaternion.identity);
@@ -78,7 +77,6 @@ public class Chargen : MonoBehaviour
                 
 
         baseHair.GetComponent<SpriteRenderer>().color = getColor(hairColor);
-        baseEyes.GetComponent<SpriteRenderer>().color = getColor(eyeColor);
         baseSkin.GetComponent<SpriteRenderer>().color = getColor(skinColor);
         baseClothes.GetComponent<SpriteRenderer>().color = getColor(clothesColor);
         baseShoes.GetComponent<SpriteRenderer>().color = getColor(shoesColor);
