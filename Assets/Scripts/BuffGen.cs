@@ -22,7 +22,7 @@ public class BuffGen : MonoBehaviour
     private int prefabdefaultchildren = 2;
     void Start()
     {
-        player = GameObject.Find("Player");
+        player = GameObject.Find("PlayerPrefab");
         
         randomizer();
         findAnnex();
