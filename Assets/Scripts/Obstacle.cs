@@ -5,6 +5,8 @@ using UnityEngine;
 public class Obstacle : MonoBehaviour
 {
     public float HP = 3.0f;
+    public GameObject son;
+    private float maxHP;
     public GameObject player;
     //if player collides trigger gameover in it's script
     void OnTriggerEnter(Collider other)
@@ -20,8 +22,24 @@ public class Obstacle : MonoBehaviour
     }
 
     public void doDamage(float dmg){
+        
+
         HP -= dmg;
-        Debug.Log("HP: " + HP);
+        
+        Material mat = son.GetComponent<Renderer>().material;
+        if(HP < 3){
+            Color a = new Color(1.0f, 0.8f, 0f);
+            mat.color = a;
+        }
+        if(HP < 2){
+            Color a = new Color(1.0f, 0.5f, 0f);
+            mat.color = a;
+        }
+        if(HP < 1){
+            Color a = new Color(1.0f, 0.2f, 0f);
+            mat.color = a;
+        }
+
         if(HP <= 0){
             Destroy(gameObject);
         }

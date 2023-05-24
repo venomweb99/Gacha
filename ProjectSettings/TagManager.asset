@@ -8,6 +8,7 @@ TagManager:
   - Road
   - Buff
   - Attack
+  - Obstacle
   layers:
   - Default
   - TransparentFX

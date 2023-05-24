@@ -29,7 +29,7 @@ public class Chargen : MonoBehaviour
         parts[3] = sh;
     }
 
-    void createRandom(){
+    public void createRandom(){
         parts[0] = Random.Range(0, 7);
         parts[1] = Random.Range(0, 7);
         parts[2] = Random.Range(0, 7);
@@ -74,4 +74,6 @@ public class Chargen : MonoBehaviour
         pc.parts = parts;
         pc.reload = true;
     }
+
+    
 }
