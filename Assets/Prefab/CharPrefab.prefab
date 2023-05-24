@@ -248,10 +248,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6364401369308391103}
-  - component: {fileID: 5584114399104690021}
   - component: {fileID: 2763926329757176411}
+  - component: {fileID: 4649107453854565538}
   m_Layer: 0
-  m_Name: PlayerPrefab
+  m_Name: CharPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -270,37 +270,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6364401369966971293}
-  - {fileID: 52920102637185715}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5584114399104690021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6364401369308391102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8b58c0cab1bc114dabd5463785e220e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  margin: 2
-  atkSpeed: 1
-  dmg: 1
-  level: 0
-  baseHair: {fileID: 6364401368415976860}
-  baseSkin: {fileID: 6364401368976348586}
-  baseClothes: {fileID: 6364401369590009434}
-  baseShoes: {fileID: 6364401370048858942}
-  weapon: 0
-  hairColor: 0
-  skinColor: 0
-  clothesColor: 0
-  shoesColor: 0
-  parts: 01000000020000000100000003000000
-  reload: 0
 --- !u!65 &2763926329757176411
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -312,8 +284,25 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.46, y: 1, z: 1}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.2, z: 0}
+--- !u!114 &4649107453854565538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6364401369308391102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67799e1919c9b694bb2ed7ab5e71c544, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseHair: {fileID: 6364401368415976860}
+  baseSkin: {fileID: 6364401368976348586}
+  baseClothes: {fileID: 6364401369590009434}
+  baseShoes: {fileID: 6364401370048858942}
+  parts: 
 --- !u!1 &6364401369590009434
 GameObject:
   m_ObjectHideFlags: 0
@@ -575,67 +564,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tiltAmount: -3
   tiltSpeed: 10
---- !u!1 &8434765835218293784
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 52920102637185715}
-  - component: {fileID: 8328018423381837553}
-  - component: {fileID: 5895950272801910835}
-  m_Layer: 0
-  m_Name: AttackSpawnpoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &52920102637185715
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8434765835218293784}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.661, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6364401369308391103}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8328018423381837553
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8434765835218293784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea6d8b607f86d124fa1e54d701599181, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timer: 0
-  player: {fileID: 6364401369308391102}
-  attackPrefab: {fileID: 1646539062704124571, guid: 168d5368adf1e6e428cdda37db001f4b, type: 3}
-  attackRangePrefab: {fileID: 1646539062704124571, guid: 0edaf9ae4ee254d41a94a99f206ca9da, type: 3}
-  isTriggered: 0
-  isRanged: 0
---- !u!65 &5895950272801910835
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8434765835218293784}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.73, z: 1}
-  m_Center: {x: 0.21, y: 0.24, z: 0}

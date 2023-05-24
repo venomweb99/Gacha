@@ -1103,15 +1103,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab1: {fileID: 8822900654194161581, guid: c8d414adff9d76940b1c6192dee7cb8e, type: 3}
   prefab2: {fileID: 8412765025581038952, guid: 177fc672cf589af408b80f09bdabd181, type: 3}
-  prefab3: {fileID: 0}
+  prefab3: {fileID: 8822900654194161581, guid: b05128dbf600abd47af09e17aef5f169, type: 3}
   prefab4: {fileID: 0}
   prefab5: {fileID: 0}
-  likelyhood1: 5
-  likelyhood2: 95
-  likelyhood3: 0
-  likelyhood4: 0
-  likelyhood5: 0
-  doing: 0
 --- !u!1 &8070919738806522342
 GameObject:
   m_ObjectHideFlags: 0
@@ -1354,15 +1348,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab1: {fileID: 8822900654194161581, guid: c8d414adff9d76940b1c6192dee7cb8e, type: 3}
   prefab2: {fileID: 8412765025581038952, guid: 177fc672cf589af408b80f09bdabd181, type: 3}
-  prefab3: {fileID: 0}
+  prefab3: {fileID: 8822900654194161581, guid: b05128dbf600abd47af09e17aef5f169, type: 3}
   prefab4: {fileID: 0}
   prefab5: {fileID: 0}
-  likelyhood1: 5
-  likelyhood2: 95
-  likelyhood3: 0
-  likelyhood4: 0
-  likelyhood5: 0
-  doing: 0
 --- !u!1 &8070919739023735402
 GameObject:
   m_ObjectHideFlags: 0
@@ -1997,15 +1985,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab1: {fileID: 8822900654194161581, guid: c8d414adff9d76940b1c6192dee7cb8e, type: 3}
   prefab2: {fileID: 8412765025581038952, guid: 177fc672cf589af408b80f09bdabd181, type: 3}
-  prefab3: {fileID: 0}
+  prefab3: {fileID: 8822900654194161581, guid: b05128dbf600abd47af09e17aef5f169, type: 3}
   prefab4: {fileID: 0}
   prefab5: {fileID: 0}
-  likelyhood1: 5
-  likelyhood2: 95
-  likelyhood3: 0
-  likelyhood4: 0
-  likelyhood5: 0
-  doing: 0
 --- !u!1 &8070919739441709705
 GameObject:
   m_ObjectHideFlags: 0
@@ -3015,15 +2997,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab1: {fileID: 8822900654194161581, guid: c8d414adff9d76940b1c6192dee7cb8e, type: 3}
   prefab2: {fileID: 8412765025581038952, guid: 177fc672cf589af408b80f09bdabd181, type: 3}
-  prefab3: {fileID: 0}
+  prefab3: {fileID: 8822900654194161581, guid: b05128dbf600abd47af09e17aef5f169, type: 3}
   prefab4: {fileID: 0}
   prefab5: {fileID: 0}
-  likelyhood1: 5
-  likelyhood2: 95
-  likelyhood3: 0
-  likelyhood4: 0
-  likelyhood5: 0
-  doing: 0
 --- !u!1 &8070919740162969225
 GameObject:
   m_ObjectHideFlags: 0

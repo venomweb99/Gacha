@@ -11,8 +11,8 @@ public class ObstacleSpawner : MonoBehaviour
     public GameObject prefab5;
 
     private int likelyhood1 = 5;
-    private int likelyhood2 = 95;
-    private int likelyhood3 = 0;
+    private int likelyhood2 = 85;
+    private int likelyhood3 = 10;
     private int likelyhood4 = 0;
     private int likelyhood5 = 0;
     private int i = 0;
