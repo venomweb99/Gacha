@@ -10,7 +10,10 @@ public class Obstacle : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         Debug.Log("collided");
-        if(other.gameObject.tag != "Attack")
+        //log other tag
+        Debug.Log(other.gameObject.tag);
+        
+        if(other.gameObject.tag == "Player")
             player.GetComponent<PlayerController>().gameOver();
         
 
@@ -18,6 +21,7 @@ public class Obstacle : MonoBehaviour
 
     public void doDamage(float dmg){
         HP -= dmg;
+        Debug.Log("HP: " + HP);
         if(HP <= 0){
             Destroy(gameObject);
         }

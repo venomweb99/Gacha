@@ -33,11 +33,14 @@ public class Attack : MonoBehaviour
             }
             if(isRanged){
                 GameObject attack = Instantiate(attackRangePrefab, transform.position, Quaternion.identity);
+                attack.GetComponent<Damager>().damage = player.GetComponent<PlayerController>().dmg * dmgMult;
                 Destroy(attack, duration);
                 
             }else{
                 GameObject attack = Instantiate(attackPrefab, transform.position, Quaternion.identity);
                 attack.transform.parent = transform;
+                //get the attack script and set its damage
+                attack.GetComponent<Damager>().damage = player.GetComponent<PlayerController>().dmg * dmgMult;
                 Destroy(attack, duration);
             }
             
@@ -60,13 +63,5 @@ public class Attack : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("collided");
-        if(timer<duration){
-            if(other.gameObject.tag == "Obstacle"){
-                other.gameObject.GetComponent<Obstacle>().doDamage(player.GetComponent<PlayerController>().dmg * dmgMult);
-            }
-        }
-    }
+    
 }
