@@ -74,21 +74,89 @@ public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
         {
             Debug.Log("Iniciando ads");
             Advertisement.Initialize(_gameId, _testMode, this);
+            // Configure the Load Banner button to call the LoadBanner() method when clicked:
+            Advertisement.Banner.SetPosition(_bannerPosition);
         }
 
         //// Disable the button until an ad is ready to show:
         //_showBannerButton.interactable = false;
         //_hideBannerButton.interactable = false;
-        
-        // Set the banner position:
-        Advertisement.Banner.SetPosition(_bannerPosition);
 
         //// Configure the Load Banner button to call the LoadBanner() method when clicked:
         //_loadBannerButton.onClick.AddListener(LoadBanner);
         //_loadBannerButton.interactable = true;
 
     }
+    // Implement a method to call when the Load Banner button is clicked:
+    public void LoadBanner()
+    {
+        Debug.Log("Loading banner...");
+        // Set up options to notify the SDK of load events:
+        BannerLoadOptions options = new BannerLoadOptions
+        {
+            loadCallback = OnBannerLoaded,
+            errorCallback = OnBannerError
+        };
 
+        // Load the Ad Unit with banner content:
+        Advertisement.Banner.Load(_adUnitIdBanner, options);
+    }
+
+    // Implement code to execute when the loadCallback event triggers:
+    void OnBannerLoaded()
+    {
+        Debug.Log("Banner loaded");
+
+        ShowBannerAd();
+    }
+
+    // Implement code to execute when the load errorCallback event triggers:
+    void OnBannerError(string message)
+    {
+        Debug.Log($"Banner Error: {message}");
+        // Optionally execute additional code, such as attempting to load another ad.
+    }
+
+    // Implement a method to call when the Show Banner button is clicked:
+    void ShowBannerAd()
+    {
+        // Set up options to notify the SDK of show events:
+        BannerOptions options = new BannerOptions
+        {
+            clickCallback = OnBannerClicked,
+            hideCallback = OnBannerHidden,
+            showCallback = OnBannerShown
+        };
+
+        // Show the loaded Banner Ad Unit:
+        Advertisement.Banner.Show(_adUnitIdBanner, options);
+    }
+
+    // Implement a method to call when the Hide Banner button is clicked:
+    public void HideBannerAd()
+    {
+
+
+        // Hide the banner:
+        Advertisement.Banner.Hide();
+    }
+
+    public static void HideBannerAd_daily()
+    {
+
+
+        // Hide the banner:
+        Advertisement.Banner.Hide();
+    }
+
+    void OnBannerClicked() { }
+    void OnBannerShown() { }
+    void OnBannerHidden() { }
+
+    void OnDestroy()
+    {
+
+    }
     //// Implement a method to call when the Load Banner button is clicked:
     //public void LoadBanner()
     //{
@@ -158,10 +226,12 @@ public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
     //    _showBannerButton.onClick.RemoveAllListeners();
     //    _hideBannerButton.onClick.RemoveAllListeners();
     //}
-    
+
     public void OnInitializationComplete()
     {
         Debug.Log("Unity Ads initialization complete.");
+
+        LoadBanner();
     }
 
     public void OnInitializationFailed(UnityAdsInitializationError error, string message)
@@ -186,22 +256,12 @@ public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
                 break;
             case AD_TYPE.BANNER:
                 Debug.Log("Loading Ad: " + _adUnitIdBanner);
-                Advertisement.Banner.Load(_adUnitIdBanner);
-                StartCoroutine(ShowBannerWhenReady());
+                Advertisement.Banner.SetPosition(_bannerPosition);
+                Advertisement.Banner.Show(_adUnitIdBanner);
                 break;
             default:
                 break;
         }
-    }
-    IEnumerator ShowBannerWhenReady()
-    {
-        while (!Advertisement.isInitialized)
-        {
-            yield return new WaitForSeconds(0.5f);
-        }
-
-        Advertisement.Banner.SetPosition(BannerPosition.BOTTOM_CENTER);
-        Advertisement.Banner.Show(_adUnitIdBanner);
     }
     // Show the loaded content in the Ad Unit:
     public void ShowAd(AD_TYPE thisType)

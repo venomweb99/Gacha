@@ -17,13 +17,19 @@ public class MenuManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+       // StartCoroutine(startADSBanner());
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private IEnumerator startADSBanner()
+    {
+        yield return new WaitForSeconds(5f);
+        m_AdsManager.LoadAd(AdsManager.AD_TYPE.BANNER);
     }
 
     public void PlayGame()
