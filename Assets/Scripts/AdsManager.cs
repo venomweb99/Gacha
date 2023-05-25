@@ -157,6 +157,12 @@ public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
     {
 
     }
+
+    public bool IsInitialize()
+    {
+        Debug.Log("IsInitialize " + Advertisement.isInitialized);
+        return Advertisement.isInitialized;
+    }
     //// Implement a method to call when the Load Banner button is clicked:
     //public void LoadBanner()
     //{
@@ -230,8 +236,6 @@ public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
     public void OnInitializationComplete()
     {
         Debug.Log("Unity Ads initialization complete.");
-
-        LoadBanner();
     }
 
     public void OnInitializationFailed(UnityAdsInitializationError error, string message)
@@ -257,7 +261,7 @@ public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
             case AD_TYPE.BANNER:
                 Debug.Log("Loading Ad: " + _adUnitIdBanner);
                 Advertisement.Banner.SetPosition(_bannerPosition);
-                Advertisement.Banner.Show(_adUnitIdBanner);
+                LoadBanner();
                 break;
             default:
                 break;
@@ -321,5 +325,23 @@ public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
     public void OnUnityAdsShowComplete(string _adUnitId, UnityAdsShowCompletionState showCompletionState)
     {
         Time.timeScale = 1;
+        if (showCompletionState == UnityAdsShowCompletionState.COMPLETED)
+        {
+            Debug.Log("Ad Completed: " + _adUnitId);
+            if (_adUnitId == _adUnitIdReward)
+            {
+                GameObject.Find("CoinSystem").GetComponent<CoinsSystem>().AddCoins(10);
+            }
+        }
+        else if (showCompletionState == UnityAdsShowCompletionState.SKIPPED)
+        {
+            Debug.Log("Ad Skipped: " + _adUnitId);
+            GameObject.Find("CoinSystem").GetComponent<CoinsSystem>().AddCoins(1);
+            // Do not reward the player for skipping the ad.
+        }
+        else if (showCompletionState == UnityAdsShowCompletionState.UNKNOWN)
+        {
+            Debug.Log("Ad Failed: " + _adUnitId);
+        }
     }
 }
