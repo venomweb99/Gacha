@@ -10,6 +10,7 @@ public class GManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(startADS());
+        StartCoroutine(startADSBanner());
     }
 
     // Update is called once per frame
@@ -25,6 +26,12 @@ public class GManager : MonoBehaviour
         Time.timeScale = 0;
     }
 
+    private IEnumerator startADSBanner()
+    {
+        yield return new WaitForSeconds(10f);
+        ShowBannerAds();
+    }
+
     public void CloseAdsPanel()
     {
         m_AdsPanel.SetActive(false);
@@ -33,7 +40,12 @@ public class GManager : MonoBehaviour
 
     public void ShowAds()
     {
-        m_AdsManager.LoadAd(AdsManager.AD_TYPE.REWARD);
+        m_AdsManager.LoadAd(AdsManager.AD_TYPE.INTERSTITIAL);
         m_AdsPanel.SetActive(false);
+    }
+
+    public void ShowBannerAds()
+    {
+        m_AdsManager.LoadAd(AdsManager.AD_TYPE.BANNER);
     }
 }
