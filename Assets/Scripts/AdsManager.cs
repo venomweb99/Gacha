@@ -186,6 +186,7 @@ public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
                 break;
             case AD_TYPE.BANNER:
                 Debug.Log("Loading Ad: " + _adUnitIdBanner);
+                Advertisement.Banner.Load(_adUnitIdBanner);
                 StartCoroutine(ShowBannerWhenReady());
                 break;
             default:
