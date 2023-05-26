@@ -27,6 +27,7 @@ public class Summonremover : MonoBehaviour
 
     }
     void doThing(){
+        //Debug.Log("Summonremover");
         Destroy(gameObject);
     }
 }
