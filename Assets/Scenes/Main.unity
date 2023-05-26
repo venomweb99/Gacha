@@ -1735,7 +1735,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5584114399104690021, guid: 5523a9850a9e3d64f9024575021e72f1, type: 3}
       propertyPath: level
-      value: 99
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5584114399104690021, guid: 5523a9850a9e3d64f9024575021e72f1, type: 3}
       propertyPath: margin
