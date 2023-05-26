@@ -116,7 +116,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -275,8 +275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amount: 0
-  isDebuff: 0
-  stat: 0
+  amountMultiplier: 100
   maxStat: 2
 --- !u!65 &239563290487225297
 BoxCollider:
