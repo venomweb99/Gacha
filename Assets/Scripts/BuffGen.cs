@@ -57,7 +57,7 @@ public class BuffGen : MonoBehaviour
                     player.GetComponent<PlayerController>().dmg += amount;
                     break;
                 case 1:
-                    player.GetComponent<PlayerController>().atkSpeed += amount/2;
+                    player.GetComponent<PlayerController>().atkSpeed += amount*0.7f;
                     break;
                 default:
                     break;

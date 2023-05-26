@@ -250,9 +250,10 @@ GameObject:
   - component: {fileID: 6364401369308391103}
   - component: {fileID: 2763926329757176411}
   - component: {fileID: 4649107453854565538}
+  - component: {fileID: 8045614378912228054}
   m_Layer: 0
   m_Name: CharPrefab
-  m_TagString: Untagged
+  m_TagString: Char
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -307,6 +308,18 @@ MonoBehaviour:
   weapon: 0
   atkSpeed: 2
   dmg: 2
+--- !u!114 &8045614378912228054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6364401369308391102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce85fbb020d108345b028f4afc5d8e2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6364401369590009434
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,9 +11,9 @@ public class Obstacle : MonoBehaviour
     //if player collides trigger gameover in it's script
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("collided");
+        //Debug.Log("collided");
         //log other tag
-        Debug.Log(other.gameObject.tag);
+        //Debug.Log(other.gameObject.tag);
         
         if(other.gameObject.tag == "Player")
             player.GetComponent<PlayerController>().gameOver();

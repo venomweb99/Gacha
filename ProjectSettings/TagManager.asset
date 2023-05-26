@@ -9,6 +9,8 @@ TagManager:
   - Buff
   - Attack
   - Obstacle
+  - Char
+  - Grid
   layers:
   - Default
   - TransparentFX
