@@ -65,7 +65,7 @@ public class Attack : MonoBehaviour
                 
             }
             if(isRanged){
-                GameObject attack = Instantiate(attackRangePrefab, transform.position, Quaternion.identity);
+                GameObject attack = Instantiate(attackRangePrefab, transform.position+ new Vector3(-1,0,0), Quaternion.identity);
                 attack.GetComponent<Damager>().damage = player.GetComponent<Chargen>().dmg;
                 Destroy(attack, duration);
                 
