@@ -1296,7 +1296,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &572214022
 Transform:
   m_ObjectHideFlags: 0
@@ -3469,7 +3469,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1620275860
 Transform:
   m_ObjectHideFlags: 0
@@ -4142,7 +4142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   length: 7
   RenderDistance: 60
-  prefab1: {fileID: 1404692365}
+  prefab1: {fileID: 8070919739801268202, guid: 0af6a3bcae11eaa488cb528ade13e442, type: 3}
   prefab2: {fileID: 1404692365}
   prefab3: {fileID: 1404692365}
   prefab4: {fileID: 1404692365}

@@ -27,7 +27,7 @@ public class Summon : MonoBehaviour
             //set as child of player
             prefab1.transform.parent = other.gameObject.transform;
             //set position to player
-            float rand1 = Random.Range(-0.7f, 0.7f);
+            float rand1 = Random.Range(-0.4f, 0.4f);
             float rand2 = Random.Range(-0.1f, -0.7f);
             prefab1.transform.position = other.gameObject.transform.position + new Vector3(rand2, 0, rand1);
 
