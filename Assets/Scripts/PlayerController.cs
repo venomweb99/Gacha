@@ -9,6 +9,9 @@ public class PlayerController : MonoBehaviour
     public float dmg = 1.0f;
     public int level = 0;
 
+    private float DatkSpeed = 1.0f;
+    private float Ddmg = 1.0f;
+
     public GameObject baseHair;
     public GameObject baseSkin;
     public GameObject baseClothes;
@@ -104,6 +107,11 @@ public class PlayerController : MonoBehaviour
     public void gameOver(){
         //reload the current scene
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+        resetStats();
+    }
 
+    void resetStats(){
+        atkSpeed = DatkSpeed;
+        dmg = Ddmg;
     }
 }

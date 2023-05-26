@@ -16,7 +16,7 @@ public class BuffGen : MonoBehaviour
     public int maxStat = 2;
     private float alarm = 0;
     private GameObject annex;
-    private float textSize = 1.9f;
+    private float textSize = 1.8f;
     private bool startAlarm = false;
     private bool once = false;
     private int prefabdefaultchildren = 2;
@@ -31,6 +31,7 @@ public class BuffGen : MonoBehaviour
     }
     void Update()
     {
+        amountMultiplier = 10 * (player.GetComponent<PlayerController>().level +2);
         if(!once){
             once = true;
                 makeText();

@@ -24,6 +24,16 @@ public class Attack : MonoBehaviour
     void Update()
     {
         timer+=Time.deltaTime;
+        if(player.tag == "Player"){
+            updatePlayer();
+        }else{
+            updateChargen();
+        }
+        
+        
+    }
+
+    void updatePlayer(){
         if(timer > 3 - player.GetComponent<PlayerController>().atkSpeed){
             timer = 0.0f;
             if(done==false){
@@ -43,17 +53,42 @@ public class Attack : MonoBehaviour
                 attack.GetComponent<Damager>().damage = player.GetComponent<PlayerController>().dmg * dmgMult;
                 Destroy(attack, duration);
             }
-            
-            //destoy the attack after 5 seconds
-            
-
-
         }
-        
+    }
+
+    void updateChargen(){
+        if(timer > 3 - player.GetComponent<Chargen>().atkSpeed){
+            timer = 0.0f;
+            if(done==false){
+                done = true;
+                checkWeaponC();
+                
+            }
+            if(isRanged){
+                GameObject attack = Instantiate(attackRangePrefab, transform.position, Quaternion.identity);
+                attack.GetComponent<Damager>().damage = player.GetComponent<Chargen>().dmg;
+                Destroy(attack, duration);
+                
+            }else{
+                GameObject attack = Instantiate(attackPrefab, transform.position, Quaternion.identity);
+                attack.transform.parent = transform;
+                //get the attack script and set its damage
+                attack.GetComponent<Damager>().damage = player.GetComponent<Chargen>().dmg;
+                Destroy(attack, duration);
+            }
+        }
     }
 
     void checkWeapon(){
         if(player.GetComponent<PlayerController>().weapon == 0){
+            isRanged = false;
+        }
+        else{
+            isRanged = true;
+        }
+    }
+    void checkWeaponC(){
+        if(player.GetComponent<Chargen>().weapon == 0){
             isRanged = false;
             duration /= 4;
         }

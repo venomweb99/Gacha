@@ -19,8 +19,9 @@ public class Damager : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         Debug.Log("collided");
+        if(other.gameObject.tag == "Obstacle"){
                 other.gameObject.GetComponent<Obstacle>().doDamage(damage);
-        Debug.Log("Damage dealt: " + damage);
+        Debug.Log("Damage dealt: " + damage);}
         
     }
 }

@@ -9,6 +9,9 @@ public class Chargen : MonoBehaviour
     public GameObject baseClothes;
     public GameObject baseShoes;
     public int[] parts;
+    public int weapon;
+    public float atkSpeed = 2.0f;
+    public float dmg = 2.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +22,12 @@ public class Chargen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        setParts();
+        if(parts[0]>3){
+            weapon = 1;
+        }else{
+            weapon = 0;
+        }
     }
 
     void createSeeded(int h, int s, int c, int sh){
