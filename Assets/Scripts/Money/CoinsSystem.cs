@@ -49,7 +49,7 @@ public class CoinsSystem : MonoBehaviour
 
     public void SaveCoins()
     {
-        Debug.Log("Guardando datos.");
+        Debug.Log("Save coins.");
         PlayerPrefs.SetInt("Coins", m_Coins);
     }
 
@@ -58,12 +58,12 @@ public class CoinsSystem : MonoBehaviour
         //check if the key exists
         if (PlayerPrefs.HasKey("Coins"))
         {
-            Debug.Log("Cargando datos.");
+            Debug.Log("Load datos.");
             m_Coins = PlayerPrefs.GetInt("Coins");
         }
         else
         {
-            Debug.Log("Hay datos, cargando datos.");
+            Debug.Log("Loading coins");
             m_Coins = PlayerPrefs.GetInt("Coins");
         }
     }

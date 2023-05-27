@@ -9,6 +9,7 @@ public class ObstacleSpawner : MonoBehaviour
     public GameObject prefab3;
     public GameObject prefab4;
     public GameObject prefab5;
+    public GameObject m_CoinPrefab;
 
     private int likelyhood1 = 5;
     private int likelyhood2 = 85;
@@ -17,6 +18,7 @@ public class ObstacleSpawner : MonoBehaviour
     private int likelyhood5 = 0;
     private int i = 0;
     private bool doing = false;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -84,6 +86,14 @@ public class ObstacleSpawner : MonoBehaviour
                
                 obs.transform.parent = transform;
             }
+        //check is exits a prefab
+        
+        if (m_CoinPrefab != null)
+        {
+            var coin = Instantiate(m_CoinPrefab, transform.position, Quaternion.identity);
+
+            coin.transform.parent = transform;
+        }
     }
 }
 

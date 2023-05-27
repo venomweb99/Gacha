@@ -3291,6 +3291,7 @@ MonoBehaviour:
   prefab3: {fileID: 8822900654194161581, guid: b05128dbf600abd47af09e17aef5f169, type: 3}
   prefab4: {fileID: 0}
   prefab5: {fileID: 0}
+  m_CoinPrefab: {fileID: 0}
 --- !u!1 &8070919738806522342
 GameObject:
   m_ObjectHideFlags: 0
@@ -3536,6 +3537,7 @@ MonoBehaviour:
   prefab3: {fileID: 8822900654194161581, guid: b05128dbf600abd47af09e17aef5f169, type: 3}
   prefab4: {fileID: 0}
   prefab5: {fileID: 0}
+  m_CoinPrefab: {fileID: 0}
 --- !u!1 &8070919739023735402
 GameObject:
   m_ObjectHideFlags: 0
@@ -4173,6 +4175,7 @@ MonoBehaviour:
   prefab3: {fileID: 8822900654194161581, guid: b05128dbf600abd47af09e17aef5f169, type: 3}
   prefab4: {fileID: 0}
   prefab5: {fileID: 0}
+  m_CoinPrefab: {fileID: 1498403948531744, guid: fa2c57d3f28a5e6419393e8bc3eeb32a, type: 3}
 --- !u!1 &8070919739441709705
 GameObject:
   m_ObjectHideFlags: 0
@@ -5189,6 +5192,7 @@ MonoBehaviour:
   prefab3: {fileID: 8822900654194161581, guid: b05128dbf600abd47af09e17aef5f169, type: 3}
   prefab4: {fileID: 0}
   prefab5: {fileID: 0}
+  m_CoinPrefab: {fileID: 0}
 --- !u!1 &8070919740162969225
 GameObject:
   m_ObjectHideFlags: 0
