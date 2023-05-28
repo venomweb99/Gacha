@@ -106,7 +106,6 @@ public class PlayerController : MonoBehaviour
     }
     public void gameOver(){
         //reload the current scene
-        
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
         resetStats();
     }

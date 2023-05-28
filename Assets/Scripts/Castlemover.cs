@@ -17,4 +17,9 @@ public class Castlemover : MonoBehaviour
         //move the castle to the left
         transform.position += Vector3.left * speed * Time.deltaTime;
     }
+
+    public void ChangeSpeed(float newSpeed)
+    {
+        speed = speed * newSpeed;
+    }
 }

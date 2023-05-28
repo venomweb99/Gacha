@@ -26,6 +26,9 @@ public class CoinsSystem : MonoBehaviour
     {
         m_Coins -= coins;
     }
+    public void removeTempCoin(int coins) {
+        m_Coins = m_Coins - coins;
+    }
 
     public int GetCoins()
     {
@@ -51,6 +54,7 @@ public class CoinsSystem : MonoBehaviour
     {
         Debug.Log("Save coins.");
         PlayerPrefs.SetInt("Coins", m_Coins);
+        PlayerPrefs.Save();
     }
 
     public void LoadCoins()
