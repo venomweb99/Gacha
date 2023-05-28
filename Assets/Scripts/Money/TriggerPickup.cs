@@ -15,10 +15,10 @@ public class TriggerPickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("¡the player entered on the trigger! : " + other.gameObject.tag);
+        Debug.Log("ï¿½the player entered on the trigger! : " + other.gameObject.tag);
         if (other.gameObject.CompareTag("Coin"))
         {
-            Debug.Log("¡the player entered!");
+            Debug.Log("ï¿½the player entered!");
             m_CoinsSystem.AddCoins(1);
             m_GManager.AddTempCoins(1);
             Destroy(other.gameObject);
@@ -27,7 +27,12 @@ public class TriggerPickup : MonoBehaviour
         if (other.gameObject.CompareTag("Grid"))
         {
             Debug.Log("Finish Game ");
-            m_GManager.NextLevel();
+            StartCoroutine(ShowGacha());
         }
+    }
+    IEnumerator ShowGacha()
+    {
+        yield return new WaitForSeconds(1.5f);
+        m_GManager.NextLevel();
     }
 }

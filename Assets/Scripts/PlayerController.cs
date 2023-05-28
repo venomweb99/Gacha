@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        LoadParts();
         setParts();
         
     }
@@ -50,6 +51,7 @@ public class PlayerController : MonoBehaviour
             {
                 transform.position = new Vector3(transform.position.x, transform.position.y, hit.point.z);
             }
+            reload = true;
         }
 
         //if the player is too far to the left or right, move them back to the edge of the screen
@@ -63,23 +65,22 @@ public class PlayerController : MonoBehaviour
         }
         
     }
-    Color getColor(int color){
+    public Color getColor(int color){
         switch(color){
             case 0:
-                return new Color(0.8f, 0.4f, 0.2f);
-
+                return new Color(1f, 0.9f, 0.0f);
             case 1:
                 return new Color(1, 0.9f, 0.5f);
             case 2:
                 return new Color(1, 0.8f, 0.6f);
             case 3:
-                return new Color(0.7f, 0.7f, 0.4f);
-            case 4:
-                return new Color(0.6f, 0.5f, 0.4f);
-            case 5:
-                return new Color(0.9f, 0.9f, 1);
-            case 6:
                 return new Color(0.5f, 0.4f, 0.3f);
+            case 4:
+                return new Color(0.3f, 0.7f, 1f);
+            case 5:
+                return new Color(1f, 0.3f, 0.3f);
+            case 6:
+                return new Color(0.8f, 1f, 0.6f);
 
             default:
                 return Color.white;
@@ -87,6 +88,7 @@ public class PlayerController : MonoBehaviour
     }
 
     void setParts(){
+        Debug.Log("setting parts ... Hair color:" + parts[0]);
         hairColor = parts[0];
         skinColor = parts[1];
         clothesColor = parts[2];
@@ -113,5 +115,27 @@ public class PlayerController : MonoBehaviour
     void resetStats(){
         atkSpeed = DatkSpeed;
         dmg = Ddmg;
+    }
+    public void SaveParts()
+    {
+        Debug.Log("Saved PARTS.");
+        PlayerPrefs.SetInt("PlayerHair", parts[0]);
+        PlayerPrefs.SetInt("PlayerSkin", parts[1]);
+        PlayerPrefs.SetInt("PlayerClothes", parts[2]);
+        PlayerPrefs.SetInt("PlayerShoes", parts[3]);
+        PlayerPrefs.Save();
+    }
+
+    public void LoadParts()
+    {
+        //check if the key exists
+        if (PlayerPrefs.HasKey("PlayerHair"))
+        {
+            Debug.Log("Loaded PARTS.");
+            parts[0] = PlayerPrefs.GetInt("PlayerHair");
+            parts[1] = PlayerPrefs.GetInt("PlayerSkin");
+            parts[2] = PlayerPrefs.GetInt("PlayerClothes");
+            parts[3] = PlayerPrefs.GetInt("PlayerShoes");
+        }
     }
 }

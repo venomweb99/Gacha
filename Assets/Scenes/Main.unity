@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.12108602, g: 0.08215201, b: 0.05774279, a: 1}
+  m_IndirectSpecularColor: {r: 0.12108577, g: 0.082151815, b: 0.057742678, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -384,10 +384,10 @@ RectTransform:
   m_Father: {fileID: 2065767546}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.1718, y: 36}
-  m_SizeDelta: {x: 343.6387, y: 132.5071}
+  m_AnchorMin: {x: 0.08400001, y: 0.5316786}
+  m_AnchorMax: {x: 0.95246106, y: 0.8166429}
+  m_AnchoredPosition: {x: 0.17181396, y: -0.1835022}
+  m_SizeDelta: {x: 1.6387024, y: 0.87409973}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &125362374
 MonoBehaviour:
@@ -409,7 +409,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Do you want to keep your skin or change for another random one?
+  m_text: Play as this character?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -436,8 +436,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 33
+  m_fontSizeBase: 33
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5623,10 +5623,10 @@ RectTransform:
   m_Father: {fileID: 2065767546}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.58925, y: 0.9315157}
-  m_AnchorMax: {x: 0.98300004, y: 0.98600006}
-  m_AnchoredPosition: {x: -205.9, y: -348.1878}
-  m_SizeDelta: {x: -53.4944, y: 43.0728}
+  m_AnchorMin: {x: 0.123461016, y: 0.127}
+  m_AnchorMax: {x: 0.404, y: 0.46832144}
+  m_AnchoredPosition: {x: 0.1000061, y: -0.5}
+  m_SizeDelta: {x: -9.4944, y: -1.9272003}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1505473152
 MonoBehaviour:
@@ -5801,7 +5801,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.90048444}
-  m_AnchoredPosition: {x: 0.4755249, y: 42.4599}
+  m_AnchoredPosition: {x: 0.4755249, y: 42.45996}
   m_SizeDelta: {x: -86.141785, y: -339.80685}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1525187725
@@ -5893,6 +5893,7 @@ MonoBehaviour:
   m_Level: {fileID: 676609385}
   m_InfoPanel: {fileID: 2065767545}
   m_PuasePanel: {fileID: 1525187723}
+  m_randomSkin: {fileID: 6364401369308391102, guid: 80c0440faff5107479f1d28ba833718f, type: 3}
 --- !u!114 &1550960559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7343,8 +7344,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.90048444}
-  m_AnchoredPosition: {x: 0.47558594, y: 42.45996}
-  m_SizeDelta: {x: -86.1418, y: -339.8068}
+  m_AnchoredPosition: {x: 0.47558594, y: -140.77315}
+  m_SizeDelta: {x: -86.142, y: -706.2729}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2065767547
 MonoBehaviour:
@@ -7586,10 +7587,10 @@ RectTransform:
   m_Father: {fileID: 2065767546}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.58925, y: 0.9315157}
-  m_AnchorMax: {x: 0.98300004, y: 0.98600006}
-  m_AnchoredPosition: {x: -15.099998, y: -348.1878}
-  m_SizeDelta: {x: -53.4944, y: 43.0728}
+  m_AnchorMin: {x: 0.60200006, y: 0.114321426}
+  m_AnchorMax: {x: 0.8887729, y: 0.46832144}
+  m_AnchoredPosition: {x: 0.8999939, y: 0.5}
+  m_SizeDelta: {x: -11.4944, y: -3.9272003}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2126776529
 MonoBehaviour:

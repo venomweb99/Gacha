@@ -17,6 +17,9 @@ public class GManager : MonoBehaviour
     public GameObject m_InfoPanel;
 
     public GameObject m_PuasePanel;
+    public GameObject m_randomSkin;
+    private GameObject m_GachaSkin;
+    private bool spawnOnce = false;
 
     private int m_CoinTempLevel = 0;
 
@@ -80,6 +83,15 @@ public class GManager : MonoBehaviour
     public void NextLevel() {
         m_player.level++;
         SaveGame();
+        Debug.Log("Next Level");
+        if(spawnOnce == false)
+        {
+            spawnOnce = true;
+            m_GachaSkin = Instantiate(m_randomSkin, new Vector3(-2.1f, 1.9f, 0), Quaternion.identity);
+        }
+        
+        //generate random skin
+        m_GachaSkin.GetComponent<Chargen>().createRandom();
         m_InfoPanel.SetActive(true);
     }
 
@@ -91,7 +103,10 @@ public class GManager : MonoBehaviour
     }
 
     public void LoadPartsPassLevel() {
-        //set parts new skin to player
+        
+        //transfer to player
+        m_GachaSkin.GetComponent<Chargen>().transferToPlayer();
+        m_player.SaveParts();
 
         //next level if you win
         RestartLevel();

@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Chargen : MonoBehaviour
+public class ChargenGacha : MonoBehaviour
 {
-    public GameObject baseHair;
+     public GameObject baseHair;
     public GameObject baseSkin;
     public GameObject baseClothes;
     public GameObject baseShoes;
-    private GameObject player;
     public int[] parts;
     public int weapon;
     public float atkSpeed = 2.0f;
@@ -17,7 +16,7 @@ public class Chargen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindObjectOfType<PlayerController>().gameObject;
+    
     }
 
     // Update is called once per frame
@@ -46,7 +45,26 @@ public class Chargen : MonoBehaviour
     }
 
     Color getColor(int color){
-        return player.GetComponent<PlayerController>().getColor(color);
+        switch(color){
+            case 0:
+                return new Color(0.8f, 0.4f, 0.2f);
+
+            case 1:
+                return new Color(1, 0.9f, 0.5f);
+            case 2:
+                return new Color(1, 0.8f, 0.6f);
+            case 3:
+                return new Color(0.7f, 0.7f, 0.4f);
+            case 4:
+                return new Color(0.6f, 0.5f, 0.4f);
+            case 5:
+                return new Color(0.9f, 0.9f, 1);
+            case 6:
+                return new Color(0.5f, 0.4f, 0.3f);
+
+            default:
+                return Color.white;
+        }
     }
 
     void setParts(){
@@ -58,12 +76,10 @@ public class Chargen : MonoBehaviour
         baseShoes.GetComponent<Renderer>().material.color = getColor(parts[3]);
     }
 
-    public void transferToPlayer(){
-        player = GameObject.FindObjectOfType<PlayerController>().gameObject;
+    void transferToPlayer(){
+        GameObject player = GameObject.Find("Player");
         PlayerController pc = player.GetComponent<PlayerController>();
         pc.parts = parts;
         pc.reload = true;
     }
-
-    
 }
