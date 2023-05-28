@@ -615,7 +615,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 4
   son: {fileID: 535026363128313701}
-  player: {fileID: 6364401369308391102, guid: 5523a9850a9e3d64f9024575021e72f1, type: 3}
+  player: {fileID: 2599081532667602444, guid: 5523a9850a9e3d64f9024575021e72f1, type: 3}
 --- !u!65 &6018776078289012993
 BoxCollider:
   m_ObjectHideFlags: 0

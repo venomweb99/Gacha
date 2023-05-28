@@ -81,17 +81,16 @@ public class GManager : MonoBehaviour
     }
 
     public void NextLevel() {
-        m_player.level++;
-        SaveGame();
-        Debug.Log("Next Level");
         if(spawnOnce == false)
         {
             spawnOnce = true;
+            m_player.level++;
+            SaveGame();
+            Debug.Log("Next Level");
             m_GachaSkin = Instantiate(m_randomSkin, new Vector3(-2.1f, 1.9f, 0), Quaternion.identity);
+            //generate random skin
+            m_GachaSkin.GetComponent<Chargen>().createRandom();
         }
-        
-        //generate random skin
-        m_GachaSkin.GetComponent<Chargen>().createRandom();
         m_InfoPanel.SetActive(true);
     }
 
@@ -122,10 +121,12 @@ public class GManager : MonoBehaviour
         if (Time.timeScale == 0)
         {
             m_PuasePanel.SetActive(true);
+            m_player.PauseMovememnt(false);
         }
         else
         {
             m_PuasePanel.SetActive(false);
+            m_player.PauseMovememnt(true);
         }
     }
 

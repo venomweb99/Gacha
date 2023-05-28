@@ -25,14 +25,17 @@ public class PlayerController : MonoBehaviour
     public int[] parts = {1,2,1,3};
     public bool reload = false;
 
+    public GameObject m_Legs;
+    public GameObject m_Body;
+    public GameObject m_Hands;
+    public GameObject m_Hair;
 
-    
+
     // Start is called before the first frame update
     void Start()
     {
         LoadParts();
         setParts();
-        
     }
 
     // Update is called once per frame
@@ -64,6 +67,27 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(transform.position.x, transform.position.y, margin);
         }
         
+    }
+
+
+    public void PauseMovememnt(bool pause)
+    {
+        if (pause)
+        {
+            m_Legs.GetComponent<PartTilter>().m_actve = true;
+            m_Body.GetComponent<PartTilter>().m_actve = true;
+            m_Hands.GetComponent<PartWobbler>().m_actve = true;
+            m_Hair.GetComponent<PartTilter>().m_actve = true;
+            m_Hair.GetComponent<PartWobbler>().m_actve = true;
+        }
+        else
+        {
+            m_Legs.GetComponent<PartTilter>().m_actve = false;
+            m_Body.GetComponent<PartTilter>().m_actve = false;
+            m_Hands.GetComponent<PartWobbler>().m_actve = false;
+            m_Hair.GetComponent<PartTilter>().m_actve = false;
+            m_Hair.GetComponent<PartWobbler>().m_actve = false;
+        }
     }
     public Color getColor(int color){
         switch(color){

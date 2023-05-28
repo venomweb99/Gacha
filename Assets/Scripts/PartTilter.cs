@@ -6,6 +6,7 @@ public class PartTilter : MonoBehaviour
 {
     public float tiltAmount = 0.5f;
     public float tiltSpeed = 0.5f;
+    public bool m_actve = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,9 +16,10 @@ public class PartTilter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float rot = Mathf.Sin(Time.time * tiltSpeed) * tiltAmount;
-        transform.rotation = Quaternion.Euler(65, -90 +rot, 0);
-        
-        
+        if (m_actve == true)
+        {
+            float rot = Mathf.Sin(Time.time * tiltSpeed) * tiltAmount;
+            transform.rotation = Quaternion.Euler(65, -90 + rot, 0);
+        }
     }
 }

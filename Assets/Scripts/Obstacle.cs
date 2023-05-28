@@ -8,15 +8,26 @@ public class Obstacle : MonoBehaviour
     public GameObject son;
     private float maxHP;
     public GameObject player;
+    
+    private GManager m_GManager;
+
+    private void Start()
+    {
+        m_GManager = FindObjectOfType<GManager>();
+    }
+
     //if player collides trigger gameover in it's script
     void OnTriggerEnter(Collider other)
     {
         //Debug.Log("collided");
         //log other tag
         //Debug.Log(other.gameObject.tag);
-        
-        if(other.gameObject.tag == "Player")
+
+        if (other.gameObject.tag == "Player")
+        {
             player.GetComponent<PlayerController>().gameOver();
+            m_GManager.removeCoins();
+        }
         
 
     }
