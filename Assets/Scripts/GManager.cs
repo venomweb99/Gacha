@@ -23,6 +23,8 @@ public class GManager : MonoBehaviour
 
     private int m_CoinTempLevel = 0;
 
+    public AudioClip fondoClip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +34,8 @@ public class GManager : MonoBehaviour
         StartCoroutine(startADSBanner());
         // Calls the "Task" function every 10 seconds after an initial delay of 0 seconds
         InvokeRepeating("SaveGame", 0f, 5f);
+        SoundManager.Instance.PlaySound(fondoClip);
+        
     }
 
 
@@ -122,11 +126,13 @@ public class GManager : MonoBehaviour
         {
             m_PuasePanel.SetActive(true);
             m_player.PauseMovememnt(false);
+            SoundManager.Instance.PuaseSound();
         }
         else
         {
             m_PuasePanel.SetActive(false);
             m_player.PauseMovememnt(true);
+            SoundManager.Instance.ResumeSound();
         }
     }
 
