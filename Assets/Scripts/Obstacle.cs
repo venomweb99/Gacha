@@ -11,6 +11,9 @@ public class Obstacle : MonoBehaviour
     
     private GManager m_GManager;
 
+    public AudioClip m_GameOversound;
+    public AudioClip m_RockDestroy;
+
     private void Start()
     {
         m_GManager = FindObjectOfType<GManager>();
@@ -25,11 +28,17 @@ public class Obstacle : MonoBehaviour
 
         if (other.gameObject.tag == "Player")
         {
-            player.GetComponent<PlayerController>().gameOver();
-            m_GManager.removeCoins();
+            SoundManager.Instance.PlaySound(m_GameOversound);
+            StartCoroutine(GameOver());
         }
         
 
+    }
+
+    IEnumerator GameOver()
+    {
+        yield return new WaitForSeconds(0.5f);
+        m_GManager.OpenPanelDead();
     }
 
     public void doDamage(float dmg){
@@ -52,6 +61,7 @@ public class Obstacle : MonoBehaviour
         }
 
         if(HP <= 0){
+            SoundManager.Instance.PlaySound(m_RockDestroy);
             Destroy(gameObject);
         }
 

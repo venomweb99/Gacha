@@ -19,11 +19,15 @@ public class GManager : MonoBehaviour
     public GameObject m_PuasePanel;
     public GameObject m_randomSkin;
     private GameObject m_GachaSkin;
+    public GameObject m_DeadPanel;
+
     private bool spawnOnce = false;
 
     private int m_CoinTempLevel = 0;
 
     public AudioClip fondoClip;
+
+    private int maxdead = 2;
 
     // Start is called before the first frame update
     void Start()
@@ -34,8 +38,7 @@ public class GManager : MonoBehaviour
         StartCoroutine(startADSBanner());
         // Calls the "Task" function every 10 seconds after an initial delay of 0 seconds
         InvokeRepeating("SaveGame", 0f, 5f);
-        SoundManager.Instance.PlaySound(fondoClip);
-        
+        LoadMusicDefault();
     }
 
 
@@ -62,7 +65,7 @@ public class GManager : MonoBehaviour
     }
 
     public void LoadGame() {
-        m_player.level = PlayerPrefs.GetInt("PlayerLevel");
+        m_player.level = PlayerPrefs.GetInt("PlayerLevel", 0);
     }
     
 
@@ -84,6 +87,26 @@ public class GManager : MonoBehaviour
         m_AdsManager.LoadAd(AdsManager.AD_TYPE.BANNER);
     }
 
+    public void ShowIntersitialAds() {
+        Debug.Log("GManager Banner Ads recover life");
+        m_DeadPanel.SetActive(false);
+        m_AdsManager.LoadAd(AdsManager.AD_TYPE.INTERSTITIAL);
+    }
+
+    public void OpenPanelDead() {
+
+        if (maxdead == 0)
+        {
+            GameOver();
+        }
+        else {
+            maxdead--;
+            //pause time
+            Time.timeScale = 0;
+            m_player.PauseMovememnt(false);
+            m_DeadPanel.SetActive(true);
+        }
+    }
     public void NextLevel() {
         if(spawnOnce == false)
         {
@@ -104,6 +127,14 @@ public class GManager : MonoBehaviour
         m_player.gameOver();
         Time.timeScale = 1;
     }
+
+    public void GameOver() {
+        m_DeadPanel.SetActive(false);
+        removeCoins();
+        m_player.gameOver();
+        Time.timeScale = 1;
+    }
+
 
     public void LoadPartsPassLevel() {
         
@@ -139,6 +170,26 @@ public class GManager : MonoBehaviour
     public void BackToMenu() {
         SceneManager.LoadScene(0);
         Time.timeScale = 1;
+    }
+
+
+    public void LoadMusicDefault()
+    {
+        List<SaveSystem.MusicStructure> m_musiclist = SaveSystem.Instance.GetGeneralList();
+
+        if (m_musiclist != null) {
+            string m_defaultmusic = SaveSystem.Instance.GetDefaultMusic();
+
+            foreach (var item in m_musiclist)
+            {
+                Debug.Log("LIST DE SETTINGS IN GAME: " + item);
+                if (item.name == m_defaultmusic && m_defaultmusic != "None")
+                {
+                    SoundManager.Instance.PlaySound(item.m_audioClip);
+                    break;
+                }
+            }
+        }
     }
     
 }

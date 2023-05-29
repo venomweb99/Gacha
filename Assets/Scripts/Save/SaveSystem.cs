@@ -3,67 +3,94 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
+using Newtonsoft.Json;
 
 public class SaveSystem : MonoBehaviour
 {
-    public void startStrcuture()
+    private static SaveSystem instance;
+    public static SaveSystem Instance => instance;
+
+    public List<MusicStructure> m_MusicList;
+
+    public List<string> m_UserMusic;
+
+    private void Awake()
     {
-
-        bool permi = false;
-        // Create Player Structure
-        MusicStructure playerstruc = new MusicStructure { name = "a", m_audioClip = null };
-
-        //Load saved
-        string jsonString = PlayerPrefs.GetString("playerlist");
-
-        MusicPj highscores = JsonUtility.FromJson<MusicPj>(jsonString);
-
-        if (highscores == null)
+        if (instance != null && instance != this)
         {
-            // There's no stored table, initialize
-            highscores = new MusicPj()
-            {
-                MusicList = new List<MusicStructure>()
-            };
+            Destroy(this.gameObject);
+            return;
         }
 
-        highscores.MusicList.Add(playerstruc);
-
-        string json = JsonUtility.ToJson(highscores);
-        PlayerPrefs.SetString("musiclist", json);
-        PlayerPrefs.Save();
-
+        instance = this;
     }
 
-    public void saveData(string jsonString)
+    private void Start()
     {
-        MusicPj musiclist = JsonUtility.FromJson<MusicPj>(jsonString);
+        LoadMusicData();
+    }
 
-        if (musiclist == null)
+    public void LoadMusicData() {
+        m_UserMusic.Clear();
+
+        List<string> loadedMusic = JsonConvert.DeserializeObject<List<string>>(GetMusicList());
+        loadedMusic.Add("None");
+
+        if (loadedMusic != null && loadedMusic.Count > 0)
         {
-            // There's no stored table, initialize
-            musiclist = new MusicPj()
+            foreach (var itemMusic in m_MusicList)
             {
-                MusicList = new List<MusicStructure>()
-            };
+                if (loadedMusic.Contains(itemMusic.name))
+                {
+                    m_UserMusic.Add(itemMusic.name);
+                }
+            }
         }
+    }
 
-        string json = JsonUtility.ToJson(musiclist);
-        PlayerPrefs.SetString("musiclist", json);
+    public List<string> GetListMusic() {
+        return m_UserMusic;
+    }
+
+    public bool CheckIsOwn(string name) {
+        return m_UserMusic.Contains(name);
+    }
+
+    public List<MusicStructure> GetGeneralList() {
+        return m_MusicList;
+    }
+    public void addMusic(string name)
+    {
+        m_UserMusic.Add(name);
+        saveData(m_UserMusic);
+    }
+    public void saveData(object jsonString)
+    {
+        string jsonlist = JsonConvert.SerializeObject(jsonString);
+        Debug.Log("jsonlist: " + jsonlist);
+        PlayerPrefs.SetString("musiclist", jsonlist);
         PlayerPrefs.Save();
     }
 
-    public string GetMusicList()
+    public void SaveDefaultMusic(string namemusic)
     {
-        string jsonString = PlayerPrefs.GetString("musiclist");
-        return jsonString;
+        Debug.Log("SaveDefaultMusic:  " + namemusic);
+        PlayerPrefs.SetString("defaultmusic", namemusic);
+        PlayerPrefs.Save();
     }
 
-    public class MusicPj
+    public static string GetMusicList()
     {
-        public List<MusicStructure> MusicList;
+        Debug.Log("GetMusicList:  " + PlayerPrefs.GetString("musiclist"));
+        return PlayerPrefs.GetString("musiclist") ?? null;
     }
-    [System.Serializable]
+
+    public string GetDefaultMusic() {
+        return PlayerPrefs.GetString("defaultmusic") ?? null;
+    }
+
+    [Serializable]
     public class MusicStructure
     {
         public string name;

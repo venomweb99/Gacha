@@ -243,6 +243,12 @@ public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
     public void OnUnityAdsShowComplete(string _adUnitId, UnityAdsShowCompletionState showCompletionState)
     {
         Time.timeScale = 1;
+        //check if exists PlayerPrefab
+        if (GameObject.Find("PlayerPrefab") != null)
+        {
+            GameObject.Find("PlayerPrefab").GetComponent<PlayerController>().PauseMovememnt(true);
+        }
+
         if (showCompletionState == UnityAdsShowCompletionState.COMPLETED)
         {
             Debug.Log("Ad Completed: " + _adUnitId);
@@ -254,8 +260,6 @@ public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
         else if (showCompletionState == UnityAdsShowCompletionState.SKIPPED)
         {
             Debug.Log("Ad Skipped: " + _adUnitId);
-            GameObject.Find("CoinSystem").GetComponent<CoinsSystem>().AddCoins(1);
-            // Do not reward the player for skipping the ad.
         }
         else if (showCompletionState == UnityAdsShowCompletionState.UNKNOWN)
         {

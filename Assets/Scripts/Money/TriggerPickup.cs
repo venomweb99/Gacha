@@ -6,6 +6,8 @@ public class TriggerPickup : MonoBehaviour
 {
     private CoinsSystem m_CoinsSystem;
     private GManager m_GManager;
+    public AudioClip m_SoundCoin;
+    public AudioClip m_SoundFinish;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,12 +23,14 @@ public class TriggerPickup : MonoBehaviour
             Debug.Log("�the player entered!");
             m_CoinsSystem.AddCoins(1);
             m_GManager.AddTempCoins(1);
+            SoundManager.Instance.PlaySound(m_SoundCoin);
             Destroy(other.gameObject);
         }
 
         if (other.gameObject.CompareTag("Grid"))
         {
             Debug.Log("Finish Game ");
+            SoundManager.Instance.PlaySound(m_SoundFinish);
             StartCoroutine(ShowGacha());
         }
     }

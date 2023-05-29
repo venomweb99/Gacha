@@ -221,6 +221,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26fbf90cc50b03c4c9f63801c6f0b5e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SoundCoin: {fileID: 8300000, guid: faf59178043670e4b99279740e9446cd, type: 3}
+  m_SoundFinish: {fileID: 8300000, guid: d019657a5352b674eb71514101cb1b03, type: 3}
 --- !u!1 &2599081532784419355
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,6 +285,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26fbf90cc50b03c4c9f63801c6f0b5e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SoundCoin: {fileID: 8300000, guid: faf59178043670e4b99279740e9446cd, type: 3}
+  m_SoundFinish: {fileID: 8300000, guid: d019657a5352b674eb71514101cb1b03, type: 3}
 --- !u!1 &2599081532982856007
 GameObject:
   m_ObjectHideFlags: 0

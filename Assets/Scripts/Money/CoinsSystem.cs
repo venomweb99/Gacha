@@ -67,8 +67,8 @@ public class CoinsSystem : MonoBehaviour
         }
         else
         {
-            Debug.Log("Loading coins");
-            m_Coins = PlayerPrefs.GetInt("Coins");
+            Debug.Log("Creating save coins");
+            SaveCoins();
         }
     }
 

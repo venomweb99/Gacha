@@ -117,12 +117,7 @@ public class PlayerController : MonoBehaviour
         skinColor = parts[1];
         clothesColor = parts[2];
         shoesColor = parts[3];
-        if(hairColor>3){
-            weapon = 1;
-        }
-        else{
-            weapon = 0;
-        }
+        weapon = 1;
 
         //set the color of the player parts based on the color variables
         baseHair.GetComponent<Renderer>().material.color = getColor(hairColor);

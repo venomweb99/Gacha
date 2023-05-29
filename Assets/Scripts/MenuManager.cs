@@ -5,7 +5,6 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.Audio;
-using UnityEngine.Rendering;
 
 public class MenuManager : MonoBehaviour
 {
@@ -34,6 +33,14 @@ public class MenuManager : MonoBehaviour
     public float m_volume = 0.0f;
     public Slider m_SliderVolume;
 
+    public TMP_Dropdown m_MusicList;
+
+    public GameObject m_ShopBuyPanel;
+
+    public TextMeshProUGUI m_musicName;
+
+    public TextMeshProUGUI m_musicCost;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +49,7 @@ public class MenuManager : MonoBehaviour
        GetName();
        LoadQuality();
        LoadVolume();
+       LoadMusic();
     }
 
     // Update is called once per frame
@@ -86,6 +94,7 @@ public class MenuManager : MonoBehaviour
 
     public void OpenSettings()
     {
+        LoadMusic();
         m_ButtonsPanel.SetActive(false);
         m_SettingsPanel.SetActive(true);
     }
@@ -195,6 +204,68 @@ public class MenuManager : MonoBehaviour
         {
             Debug.Log("Load default volume: " + m_volume);
             m_AudioMixer.SetFloat("volume", m_volume);
+        }
+    }
+
+    public void LoadMusic()
+    {
+        SaveSystem.Instance.LoadMusicData();
+        List<string> m_musiclist = SaveSystem.Instance.GetListMusic();
+        string m_defaultmusic = SaveSystem.Instance.GetDefaultMusic();
+
+        if (m_musiclist != null && m_defaultmusic != null) {
+            foreach (var item in m_musiclist)
+            {
+                Debug.Log("LIST DE SETTINGS: " + item);
+            }
+            //Clear the Dropdown
+            m_MusicList.ClearOptions();
+            //Update the Dropdown
+            m_MusicList.RefreshShownValue();
+            //Add the list
+            m_MusicList.AddOptions(m_musiclist);
+
+            //set default music
+            for (int i = 0; i < m_MusicList.options.Count; i++)
+            {
+                if (m_MusicList.options[i].text == m_defaultmusic)
+                {
+                    m_MusicList.value = i;
+                    break;
+                }
+            }
+        }
+    }
+
+    public void SaveDefaultMusic() {
+        SaveSystem.Instance.SaveDefaultMusic(m_MusicList.options[m_MusicList.value].text);
+    }
+
+    public void OpenBuyPanel(string name) {
+        if (!SaveSystem.Instance.CheckIsOwn(name)) {
+            m_musicName.text = name;
+            m_ShopBuyPanel.SetActive(true);
+        }
+    }
+
+    public void OpenBuyPanelCost(int cost) {
+        m_musicCost.text = cost.ToString();
+    }
+
+    public void CloseBuyPanel() {
+        m_ShopBuyPanel.SetActive(false);
+    }
+    public void ShopItem()
+    {
+        int newcost = int.Parse(m_musicCost.text);
+        if (m_CoinsSystem.CanBuy(newcost))
+        {
+            m_CoinsSystem.Buy(newcost);
+            m_CoinsSystem.SaveCoins();
+            SaveSystem.Instance.addMusic(m_musicName.text);
+            //close panel buy
+            m_ShopBuyPanel.SetActive(false);
+            Debug.Log("Buy item done: " + newcost);
         }
     }
 }
