@@ -28,6 +28,7 @@ public class SaveSystem : MonoBehaviour
 
     private void Start()
     {
+        m_UserMusic.Add("None");
         LoadMusicData();
     }
 
@@ -35,10 +36,11 @@ public class SaveSystem : MonoBehaviour
         m_UserMusic.Clear();
 
         List<string> loadedMusic = JsonConvert.DeserializeObject<List<string>>(GetMusicList());
-        loadedMusic.Add("None");
 
         if (loadedMusic != null && loadedMusic.Count > 0)
         {
+            loadedMusic.Add("None");
+            
             foreach (var itemMusic in m_MusicList)
             {
                 if (loadedMusic.Contains(itemMusic.name))
